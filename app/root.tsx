@@ -4,6 +4,7 @@ import {
   Links,
   Meta,
   Outlet,
+  redirect,
   Scripts,
   ScrollRestoration,
   useLoaderData,
@@ -14,7 +15,7 @@ import { createEmptyContact, getContacts } from "./data";
 
 export const action = async () => {
   const contact = await createEmptyContact();
-  return { contact };
+  return redirect(`/contacts/${contact.id}/edit`);
 };
 
 export const links: LinksFunction = () => [
